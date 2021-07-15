@@ -1,5 +1,4 @@
 " ~/.vimrc
-
 " Notes 
 " - origin "https//github.com/jack-0/dotfiles"
 " - install vundle (visit "github.com/VundleVim/Vundle.vim") 
@@ -26,6 +25,9 @@ Plugin 'scrooloose/nerdtree'  " Nerd Tree
 Plugin 'octol/vim-cpp-enhanced-highlight' " cpp and std_lib syntax highlights
 Plugin 'Valloric/YouCompleteMe' " YCM code autocomplete
 "Plugin 'altercation/vim-colors-solarized' " Solarised Theme
+Plugin 'wincent/terminus' " diff cursors for insert and edit modes
+Plugin 'neovimhaskell/haskell-vim' " haskell support
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
