@@ -28,6 +28,7 @@ Plugin 'Valloric/YouCompleteMe' " YCM code autocomplete
 Plugin 'wincent/terminus' " diff cursors for insert and edit modes
 Plugin 'neovimhaskell/haskell-vim' " haskell support
 
+Plugin 'sheerun/vim-polyglot' " language support
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,6 +42,7 @@ syntax on
 set number
 set showmatch "show matching brace
 set background=dark
+colorscheme peachpuff
 
 " space and tab settings (i.e. indent)
 set autoindent
@@ -61,6 +63,13 @@ set tabstop=4
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" save undos after write and q 
+" NOTE YOU MUST mkdir ~/.vim/undo
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature  
+  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+  endif
 
 " End General-----------------------------------------------------------------
 
