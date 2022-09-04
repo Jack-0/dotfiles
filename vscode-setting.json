@@ -1,0 +1,38 @@
+{
+  "workbench.startupEditor": "none",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "cSpell.userWords": ["jsonify"],
+  "mssql.connections": [
+    {
+      "server": "localhost",
+      "database": "",
+      "authenticationType": "SqlLogin",
+      "user": "sa",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true
+    }
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro Flat",
+  "mssql.enableQueryHistoryCapture": false,
+  "extensions.ignoreRecommendations": true,
+  "json.schemas": [],
+  "aws.profile": "profile:default",
+  "editor.suggest.showMethods": true,
+  "editor.suggest.preview": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.snippetSuggestions": "top",
+  "window.nativeTabs": true,
+  "[javascript]":{
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "prettier.useEditorConfig": false,
+  "editor.codeActionsOnSave": {
+  
+  }
+}
