@@ -34,5 +34,6 @@
   "prettier.useEditorConfig": false,
   "editor.codeActionsOnSave": {
   
-  }
+  },
+  "aws.telemetry": false
 }
