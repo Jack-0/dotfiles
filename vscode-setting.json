@@ -25,14 +25,13 @@
   "editor.acceptSuggestionOnEnter": "on",
   "editor.snippetSuggestions": "top",
   "window.nativeTabs": true,
-  "[javascript]":{
+  "[javascript]": {
     "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.formatOnSave": true
   },
   "prettier.useEditorConfig": false,
-  "editor.codeActionsOnSave": {
-  
-  }
+  "editor.codeActionsOnSave": {},
+  "aws.telemetry": false
 }
