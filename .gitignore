@@ -1,0 +1,4 @@
+# avoid committing certain items to git
+*work.*
+*secret.*
+*personal.*
