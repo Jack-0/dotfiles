@@ -1,0 +1,64 @@
+# zsh
+export ZSH="$HOME/.oh-my-zsh"
+
+# theme
+#ZSH_THEME="robbyrussell" # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="cloud" # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+
+# plugins
+plugins=(
+    git 
+    per-directory-history
+    zsh-syntax-highlighting #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+)
+source $ZSH/oh-my-zsh.sh
+
+# default editor
+export EDITOR='nvim'
+
+# edit line with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# History
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt EXTENDED_HISTORY # timestamp history
+export HISTSIZE=50000 # size
+
+# aliases
+source ~/.zshrc_aliases
+
+# NO AWS SAM TELEMENTRY
+export SAM_CLI_TELEMETRY=0
+
+
+# completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+extra_zsh_configs=(
+    "$HOME/.config/zsh/aliases.zsh" 
+    "$HOME/.config/zsh/paths.zsh" 
+    "$HOME/.config/zsh/work.zsh" 
+    "$HOME/.config/zsh/personal.zsh" 
+)
+for file in "${extra_zsh_configs[@]}"; do
+    if [ -f "$file" ]; then
+        # echo "sourced $file"
+        source "$file"
+    fi
+done
+
