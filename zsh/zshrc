@@ -54,6 +54,7 @@ extra_zsh_configs=(
     "$HOME/.config/zsh/paths.zsh" 
     "$HOME/.config/zsh/work.zsh" 
     "$HOME/.config/zsh/personal.zsh" 
+    "$HOME/.config/zsh/exports.zsh"
 )
 for file in "${extra_zsh_configs[@]}"; do
     if [ -f "$file" ]; then
