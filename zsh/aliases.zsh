@@ -4,8 +4,12 @@ alias v="nvim"
 alias vi="nvim"
 alias n="nvim"
 
+# start tmux base sessions
+alias b="tmux attach -t base || tmux new -s base"
+
 # util
-#alias h='_h(){ grep "$1" ~/.zsh_history ;}; _h'
+alias c="clear"
+alias h='_h(){$HOME/.local/bin/zsh_history.sh $1}; _h' # history grep
 alias prettyPlz='prettier --write .'
 alias j="~/sesh.sh"
 alias jj="~/.code_sesh.sh"
@@ -18,5 +22,3 @@ alias code-ext='code --list-extensions | xargs -L 1 echo code --install-extensio
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.config/nvim'
-
-alias h='_h(){$HOME/.local/bin/zsh_history.sh $1}; _h'
