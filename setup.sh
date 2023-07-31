@@ -36,3 +36,11 @@ for file in "$DOTFILE_DIR/zsh/"*; do
         fi
     fi
 done
+
+# TMUX -----------------------------------------------------------------------
+[ -d "$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+ln -s $DOTFILE_DIR/tmux/tmux.conf $HOME/.tmux.conf
+tmux source $HOME/.tmux.conf
+exec $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+exec $HOME/.tmux/plugins/tpm/scripts/update_plugins.sh
+tmux source $HOME/.tmux.conf
