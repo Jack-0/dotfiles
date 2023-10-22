@@ -1,11 +1,12 @@
 # neovim
 alias vim="nvim"
-alias v="nvim"
 alias vi="nvim"
-alias n="nvim"
+alias v="nvim ."
+alias n="nvim ."
 
 # start tmux base sessions
 alias b="$HOME/.local/bin/tmux_base.sh"
+alias base="$HOME/.local/bin/tmux_base.sh"
 
 # util
 alias c="clear"
