@@ -7,3 +7,6 @@ export FZF_DEFAULT_OPTS="
     --color=info:#535b84,prompt:#759aea,pointer:#b292eb 
     --color=marker:#96c367,spinner:#af5fff,header:#ce8fff
 "
+
+# OPTOUT of MS dotnet telemetry
+DOTNET_CLI_TELEMETRY_OPTOUT=1
