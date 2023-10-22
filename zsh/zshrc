@@ -35,9 +35,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt EXTENDED_HISTORY # timestamp history
 export HISTSIZE=50000 # size
 
-# aliases
-source ~/.zshrc_aliases
-
 # NO AWS SAM TELEMENTRY
 export SAM_CLI_TELEMETRY=0
 
