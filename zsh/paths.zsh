@@ -1,5 +1,8 @@
 export PATH="$HOME/.local/bin:$PATH"
 
+# vscode code
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # cpp glfw: maybe deprecate? 
 export PATH="/usr/local/include/GLFW:$PATH"
 export PATH="$PATH:/usr/local/include/GLFW"
