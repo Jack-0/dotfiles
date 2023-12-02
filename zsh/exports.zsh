@@ -8,5 +8,8 @@ export FZF_DEFAULT_OPTS="
     --color=marker:#96c367,spinner:#af5fff,header:#ce8fff
 "
 
-# OPTOUT of MS dotnet telemetry
-DOTNET_CLI_TELEMETRY_OPTOUT=1
+# OPTOUT of telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export HOMEBREW_NO_ANALYTICS=1
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+export SAM_CLI_TELEMETRY=0
