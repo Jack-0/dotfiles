@@ -14,6 +14,7 @@ alias h='_h(){$HOME/.local/bin/zsh_history.sh $1}; _h' # history grep
 alias prettyPlz='prettier --write .'
 alias j="$HOME/.local/bin/sesh.sh"
 alias jj="$HOME/.local/bin/code_sesh.sh"
+alias s="$HOME/.local/bin/ssh.py"
 
 # misc
 alias list="nvim ~/thelist.md"
