@@ -28,17 +28,14 @@ def tmuxAttach(sessionName):
         return subprocess.run(['tmux', 'attach-session', '-t', sessionName])
  
 def createSession(name, cmd):
-    print("create")
     subprocess.run(['tmux', 'new-session', '-d', '-s', name, cmd])
     tmuxAttach(name)
 
 
 def startTmuxSSHSession(name, cmd):
     if tmuxSeshExists(name):
-        print("a")
         tmuxAttach(name)
     else:
-        print("b")
         createSession(name, cmd)
 
 if __name__ == "__main__":
