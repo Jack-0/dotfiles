@@ -5,7 +5,7 @@
 #
 # 1. brew install fzf
 # 2. alter the dirs variable
-dirs=("$HOME/work/x" "$HOME/work/y")
+dirs=($(find "$HOME/work" -mindepth 1 -maxdepth 1 -type d) "$HOME/learning")
 
 # fuzzy find selected
 if [[ $# -eq 1 ]]; then
@@ -18,4 +18,4 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 # open with vs-code
-code $selected
+code $selected || codium $selected 

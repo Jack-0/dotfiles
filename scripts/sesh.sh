@@ -9,7 +9,7 @@
 #
 # 1. brew install fzf
 # 2. change 'dirs' to directories you would like to fuzzy filter
-dirs=("$HOME/pdev" "$HOME/dev" "$HOME/learning")
+dirs=("$HOME/pdev" "$HOME/learning" $(find "$HOME/work" -mindepth 1 -maxdepth 1 -type d))
 
 # fuzzy select session
 if [[ $# -eq 1 ]]; then
