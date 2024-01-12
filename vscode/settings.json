@@ -1,20 +1,50 @@
 {
-    // avoid telemetry
+    // Avoid telemetry
     "telemetry.telemetryLevel": "off",
     "aws.telemetry": false,
-
-    // appearance 
+  
+    // Appearance
     "workbench.colorTheme": "One Dark Pro",
     "editor.fontFamily": "ComicCode Nerd Font",
     "editor.fontSize": 13,
     "editor.fontLigatures": false,
     "editor.minimap.enabled": false,
     "launch": {
-        "configurations": [],
-        "compounds": []
+      "configurations": [],
+      "compounds": []
     },
     "cSpell.language": "en-GB,en",
     "workbench.startupEditor": "none",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-}
+  
+    // Vim
+    "vim.leader": " ",
+    // Ignore keys
+    "vim.handleKeys": {
+      "<C-p>": false // issues with windows fuzzy find
+    },
+    // Custom bindings
+    // I find these bindings by going to Keyboard shortcuts (⌘k+⌘s),
+    // then I click copy and paste to reveal the command 
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": [" ", "c"],
+        "commands": ["workbench.action.showCommands"]
+      },
+      {
+        "before": [" ", "f"],
+        "commands": ["editor.action.formatDocument"]
+      },
+      {
+        "before": [" ", "r"],
+        "commands": ["editor.action.rename"]
+      },
+    ],
+  
+    // JSON
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  }
+  
