@@ -40,11 +40,18 @@
         "before": [" ", "r"],
         "commands": ["editor.action.rename"]
       },
+      {
+        "before": [" ", " "],
+        "commands": ["workbench.action.quickOpen"]
+      },
     ],
   
     // JSON
     "[jsonc]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
   }
   
