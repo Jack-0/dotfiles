@@ -5,7 +5,7 @@
 #
 # 1. brew install fzf
 # 2. alter the dirs variable
-dirs=($(find "$HOME/work" -mindepth 1 -maxdepth 1 -type d) "$HOME/learning")
+dirs=($(find "$HOME/work" -mindepth 1 -maxdepth 1 -type d) "$HOME/learning" "$HOME/pdev")
 
 # fuzzy find selected
 if [[ $# -eq 1 ]]; then
