@@ -58,3 +58,18 @@ for file in "${extra_zsh_configs[@]}"; do
     fi
 done
 
+
+# bun completions
+[ -s "/Users/jack/.bun/_bun" ] && source "/Users/jack/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# rust
+source "$HOME/.cargo/env"
+
+# llvm
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
