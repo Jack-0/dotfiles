@@ -1,0 +1,11 @@
+# SSH 
+[[ssh]]
+name = "strawberry"
+cmd = "ssh smurf@192.168.1.11"
+[[ssh]]
+name = "blueberry"
+cmd = "ssh -p 69 -i $HOME/.ssh/bilbo bilbo@192.168.1.2"
+
+# Code session directories used to fuzzy find code projects
+[code_dirs]
+paths = ["$HOME/work", "$HOME/pdev", "$HOME/learning"]
