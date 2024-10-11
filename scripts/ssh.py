@@ -44,7 +44,6 @@ if __name__ == "__main__":
     # current_dir = Path(__file__).parent
     current_dir = Path(__file__).resolve().parent
     config_file_path = current_dir.name + "/../config.toml"
-    print("conf path=", config_file_path)
     with open(config_file_path, "rb") as f:
         data = tomllib.load(f)
     sshHostInfo = data["ssh"]
@@ -66,6 +65,9 @@ if __name__ == "__main__":
     selected_ssh_info = next(
         (entry for entry in sshHostInfo
             if entry["name"].strip() == selected_name), None)
+
+    if selected_name is None or selected_name == "":
+        exit()
 
     if selected_ssh_info is None:
         raise Exception(selected_name, "Not found in ssh hosts list")
