@@ -42,8 +42,8 @@ def startTmuxSSHSession(name, cmd):
 
 if __name__ == "__main__":
     # current_dir = Path(__file__).parent
-    current_dir = Path(__file__).resolve().parent
-    config_file_path = current_dir.name + "/../config.toml"
+    current_dir = Path(__file__).resolve()
+    config_file_path = str(current_dir.parent) + "/../config.toml"
     with open(config_file_path, "rb") as f:
         data = tomllib.load(f)
     sshHostInfo = data["ssh"]
