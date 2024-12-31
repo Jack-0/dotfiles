@@ -4,6 +4,9 @@
 shell-integration=zsh
 
 # Style
-font-family = "ComicCode Nerd Font"
-font-size = 16
-theme = "tokyonight-storm"
+title=" "
+font-family="ComicCode Nerd Font"
+font-size=18
+theme="tokyonight-storm"
+window-width=110
+window-height=55

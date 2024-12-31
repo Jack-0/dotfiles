@@ -47,5 +47,9 @@ exec $HOME/.tmux/plugins/tpm/scripts/update_plugins.sh
 tmux source $HOME/.tmux.conf
 
 # OTHER ----------------------------------------------------------------------
-#Ghostty Config
+
+#Ghostty (terminal)
 ln -sfn $DOTFILE_DIR/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+
+#Aerospace (window manager)
+ln -sfn $DOTFILE_DIR/aerospace/aerospace.toml $CONFIG_DIR/.aerospace.toml
