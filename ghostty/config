@@ -1,0 +1,9 @@
+# Startup
+# initial-command="tmux a -t base || tmux new -s base"
+
+shell-integration=zsh
+
+# Style
+font-family = "ComicCode Nerd Font"
+font-size = 16
+theme = "tokyonight-storm"

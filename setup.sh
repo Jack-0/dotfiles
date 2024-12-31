@@ -1,5 +1,6 @@
 #!/bin/bash
 DOTFILE_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+CONFIG_DIR="$HOME/.config"
 
 # SCRIPTS --------------------------------------------------------------------
 SCRIPTS_DIR="$HOME/.local/bin"
@@ -44,3 +45,7 @@ tmux source $HOME/.tmux.conf
 exec $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 exec $HOME/.tmux/plugins/tpm/scripts/update_plugins.sh
 tmux source $HOME/.tmux.conf
+
+# OTHER ----------------------------------------------------------------------
+#Ghostty Config
+ln -sfn $DOTFILE_DIR/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
