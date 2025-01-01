@@ -10,3 +10,5 @@ font-size=18
 theme="tokyonight-storm"
 window-width=110
 window-height=55
+adjust-cell-height=10
+font-feature="-dlig" # disable ligatures
