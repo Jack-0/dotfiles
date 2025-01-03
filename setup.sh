@@ -5,7 +5,7 @@ CONFIG_DIR="$HOME/.config"
 # SCRIPTS --------------------------------------------------------------------
 SCRIPTS_DIR="$HOME/.local/bin"
 [ -d $SCRIPTS_DIR ] || mkdir $SCRIPTS_DIR
-ln -sfn $DOTFILE_DIR/scripts/* $SCRIPTS_DIR
+ln -sf $DOTFILE_DIR/scripts/* $SCRIPTS_DIR
 
 # delete any broken symbolic links
 #find -L $HOME/.local/bin -type l -exec rm {}\;
@@ -23,7 +23,7 @@ for file in "$DOTFILE_DIR/scripts/"*; do
 done
 
 # ZSH ------------------------------------------------------------------------
-ln -sfn $DOTFILE_DIR/zsh/zshrc $HOME/.zshrc
+ln -sf $DOTFILE_DIR/zsh/zshrc $HOME/.zshrc
 
 # create ZSH_CONFIG_DIR if no dir
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
@@ -33,10 +33,17 @@ ZSH_CONFIG_DIR="$HOME/.config/zsh"
 for file in "$DOTFILE_DIR/zsh/"*; do
     if [ $file != "$DOTFILE_DIR/zsh/zshrc" ]; then
         if [ -f "$file" ]; then
-            ln -sfn $file $ZSH_CONFIG_DIR
+            ln -sf $file $ZSH_CONFIG_DIR
         fi
     fi
 done
+
+# OTHER ----------------------------------------------------------------------
+echo "setup extra sym links"
+#Ghostty (terminal)
+ln -sf $DOTFILE_DIR/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+#Aerospace (window manager)
+ln -sf $DOTFILE_DIR/aerospace/aerospace.toml $HOME/.aerospace.toml
 
 # TMUX -----------------------------------------------------------------------
 [ -d "$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
@@ -46,10 +53,3 @@ exec $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
 exec $HOME/.tmux/plugins/tpm/scripts/update_plugins.sh
 tmux source $HOME/.tmux.conf
 
-# OTHER ----------------------------------------------------------------------
-
-#Ghostty (terminal)
-ln -sfn $DOTFILE_DIR/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
-
-#Aerospace (window manager)
-ln -sfn $DOTFILE_DIR/aerospace/aerospace.toml $CONFIG_DIR/.aerospace.toml
