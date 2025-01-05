@@ -44,6 +44,8 @@ echo "setup extra sym links"
 ln -sf $DOTFILE_DIR/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 #Aerospace (window manager)
 ln -sf $DOTFILE_DIR/aerospace/aerospace.toml $HOME/.aerospace.toml
+#VScode settings
+ln -sf $DOTFILE_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json 
 
 # TMUX -----------------------------------------------------------------------
 [ -d "$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm

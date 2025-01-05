@@ -1,57 +1,85 @@
 {
-    // Avoid telemetry
-    "telemetry.telemetryLevel": "off",
-    "aws.telemetry": false,
-  
-    // Appearance
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.fontFamily": "ComicCode Nerd Font",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": false,
-    "editor.minimap.enabled": false,
-    "launch": {
-      "configurations": [],
-      "compounds": []
+  // Avoid telemetry
+  "telemetry.telemetryLevel": "off",
+  "aws.telemetry": false,
+
+  // Appearance
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.fontFamily": "ComicCode Nerd Font",
+  "debug.console.fontFamily": "ComicCode Nerd Font",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": false,
+  "editor.minimap.enabled": false,
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "cSpell.language": "en-GB,en",
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // Vim
+  "vim.leader": " ",
+  // Ignore keys
+  "vim.handleKeys": {
+    "<C-p>": false // issues with windows fuzzy find
+  },
+  // Custom bindings
+  // I find these bindings by going to Keyboard shortcuts (⌘k+⌘s),
+  // then I click copy and paste to reveal the command 
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [" ", "c"],
+      "commands": ["workbench.action.showCommands"]
     },
-    "cSpell.language": "en-GB,en",
-    "workbench.startupEditor": "none",
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-  
-    // Vim
-    "vim.leader": " ",
-    // Ignore keys
-    "vim.handleKeys": {
-      "<C-p>": false // issues with windows fuzzy find
+    {
+      "before": [" ", "f"],
+      "commands": ["editor.action.formatDocument"]
     },
-    // Custom bindings
-    // I find these bindings by going to Keyboard shortcuts (⌘k+⌘s),
-    // then I click copy and paste to reveal the command 
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": [" ", "c"],
-        "commands": ["workbench.action.showCommands"]
-      },
-      {
-        "before": [" ", "f"],
-        "commands": ["editor.action.formatDocument"]
-      },
-      {
-        "before": [" ", "r"],
-        "commands": ["editor.action.rename"]
-      },
-      {
-        "before": [" ", " "],
-        "commands": ["workbench.action.quickOpen"]
-      },
-    ],
-  
-    // JSON
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": [" ", "r"],
+      "commands": ["editor.action.rename"]
     },
-    "[typescript]": {
+    {
+      "before": [" ", " "],
+      "commands": ["workbench.action.quickOpen"]
+    },
+  ],
+
+  // JSON
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-  }
-  
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "svelte.enable-ts-plugin": true,
+  "cSpell.userWords": [
+    "Odata",
+    "OIDC"
+  ],
+  "extensions.ignoreRecommendations": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "settingsSync.ignoredSettings": [],
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "gitlens.telemetry.enabled": false,
+  "razor.completion.commitElementsWithSpace": false,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "debug.console.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "azureFunctions.showProjectWarning": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "svg.preview.mode": "svg"
+}
