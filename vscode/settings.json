@@ -5,8 +5,8 @@
 
   // Appearance
   "workbench.colorTheme": "One Dark Pro",
-  "editor.fontFamily": "ComicCode Nerd Font",
-  "debug.console.fontFamily": "ComicCode Nerd Font",
+  "editor.fontFamily": "ComicCode Nerd Font, Comic Mono",
+  "debug.console.fontFamily": "ComicCode Nerd Font, Comic Mono",
   "editor.fontSize": 16,
   "editor.fontLigatures": false,
   "editor.minimap.enabled": false,
@@ -81,5 +81,12 @@
   },
   "azureFunctions.showProjectWarning": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "svg.preview.mode": "svg"
+  "svg.preview.mode": "svg",
+  "workbench.settings.applyToAllProfiles": [
+  ],
+  "go.toolsManagement.autoUpdate": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.trailingComma": "all"
 }
