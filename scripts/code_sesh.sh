@@ -11,7 +11,7 @@ dirs=($(find "$HOME/work" -mindepth 1 -maxdepth 1 -type d) "$HOME/learning" "$HO
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find "${dirs[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find "${dirs[@]}" -mindepth 1 -maxdepth 1 -type d | fzf --preview 'tree {}')
 fi
 # if nothing is selected exit
 if [[ -z $selected ]]; then
