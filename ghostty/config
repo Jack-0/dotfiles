@@ -6,7 +6,8 @@ shell-integration=zsh
 
 # Style
 title=" "
-macos-titlebar-style=hidden # hidden macos topbar
+# hidden macos topbar
+macos-titlebar-style=hidden 
 font-family="ComicCode Nerd Font"
 font-size=18
 theme="TokyoNight Storm"
@@ -17,5 +18,7 @@ window-padding-y=10
 adjust-cell-height=10
 
 # QOL
-font-feature="-dlig" # disable ligatures
-confirm-close-surface=false # no warning on quite 
+# disable ligatures
+font-feature="-dlig" 
+# no warning on quite 
+confirm-close-surface=false 
