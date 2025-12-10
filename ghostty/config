@@ -1,14 +1,21 @@
 # Startup
 # initial-command="tmux a -t base || tmux new -s base"
 
+# options
 shell-integration=zsh
 
 # Style
 title=" "
+macos-titlebar-style=hidden # hidden macos topbar
 font-family="ComicCode Nerd Font"
 font-size=18
 theme="TokyoNight Storm"
 window-width=110
 window-height=55
+window-padding-x=16,10
+window-padding-y=10
 adjust-cell-height=10
+
+# QOL
 font-feature="-dlig" # disable ligatures
+confirm-close-surface=false # no warning on quite 

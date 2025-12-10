@@ -31,7 +31,8 @@ default-root-container-layout = 'accordion'
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
+# default-root-container-orientation = 'auto'
+default-root-container-orientation = 'vertical'
 
 # Mouse follows focus when focused monitor changes
 # Drop it from your config, if you don't like this behavior
@@ -61,10 +62,10 @@ preset = 'qwerty'
 inner.horizontal = 0
 inner.vertical =   0
 # outer.left =       [{ monitor."M27U" = 200 },0]
-outer.left =       0
-outer.bottom =     0
-outer.top =        0
-outer.right =      0
+outer.left =       6
+outer.bottom =     6
+outer.top =        6
+outer.right =      6
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -118,70 +119,21 @@ alt-shift-k = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 # alt-h = 'workspace 1'
-cmd-h = 'workspace 1'
-cmd-j = 'workspace 2'
-cmd-k = 'workspace 3'
-cmd-l = 'workspace 4'
-cmd-semicolon = 'workspace 5'
-# alt-6 = 'workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
-# alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-# alt-b = 'workspace B'
-# alt-c = 'workspace C'
-# alt-d = 'workspace D'
-# alt-e = 'workspace E'
-# alt-f = 'workspace F'
-# alt-g = 'workspace G'
-# alt-i = 'workspace I'
-# alt-m = 'workspace M'
-# alt-n = 'workspace N'
-# alt-o = 'workspace O'
-# alt-p = 'workspace P'
-# alt-q = 'workspace Q'
-# alt-r = 'workspace R'
-# alt-s = 'workspace S'
-# alt-t = 'workspace T'
-# alt-u = 'workspace U'
-# alt-v = 'workspace V'
-# alt-w = 'workspace W'
-# alt-x = 'workspace X'
-# alt-y = 'workspace Y'
-# alt-z = 'workspace Z'
+# cmd-h = 'workspace 1'
+
+# cmd-h = ['exec-and-forget open /Applications/Ghostty', 'workspace 1']
+cmd-h = 'workspace h'
+cmd-j = ["exec-and-forget open -a 'Ghostty.app' --args --title=base", 'workspace j']
+cmd-k = ["exec-and-forget open '/Applications/Brave Browser.app'", 'workspace k']
+cmd-l = 'workspace l'
+cmd-semicolon = 'workspace ;'
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 # alt-shift-h = 'move-node-to-workspace 1'
 # alt-shift-j = 'move-node-to-workspace 2'
 # alt-shift-k = 'move-node-to-workspace 3'
 # alt-shift-l = 'move-node-to-workspace 4'
-# alt-shift-semicolon = 'move-node-to-workspace 5'
-# alt-shift-6 = 'move-node-to-workspace 6'
-# alt-shift-7 = 'move-node-to-workspace 7'
-# alt-shift-8 = 'move-node-to-workspace 8'
-# alt-shift-9 = 'move-node-to-workspace 9'
-# alt-shift-a = 'move-node-to-workspace A'
-# alt-shift-b = 'move-node-to-workspace B'
-# alt-shift-c = 'move-node-to-workspace C'
-# alt-shift-d = 'move-node-to-workspace D'
-# alt-shift-e = 'move-node-to-workspace E'
-# alt-shift-f = 'move-node-to-workspace F'
-# alt-shift-g = 'move-node-to-workspace G'
-# alt-shift-i = 'move-node-to-workspace I'
-# alt-shift-m = 'move-node-to-workspace M'
-# alt-shift-n = 'move-node-to-workspace N'
-# alt-shift-o = 'move-node-to-workspace O'
-# alt-shift-p = 'move-node-to-workspace P'
-# alt-shift-q = 'move-node-to-workspace Q'
-# alt-shift-r = 'move-node-to-workspace R'
-# alt-shift-s = 'move-node-to-workspace S'
-# alt-shift-t = 'move-node-to-workspace T'
-# alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
-# alt-shift-w = 'move-node-to-workspace W'
-# alt-shift-x = 'move-node-to-workspace X'
-# alt-shift-y = 'move-node-to-workspace Y'
-# alt-shift-z = 'move-node-to-workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -214,38 +166,35 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # Move applications to specified workspaces
 # to find the app-id use the following
-# `codesign -dr - /Applications/yourapp.app`
+# `aerospace list-apps --json`
 
-# Chat
-# [[on-window-detected]]
-# if.app-id = 'com.microsoft.teams2' # new teams
-# run = "move-node-to-workspace ?"
-# [[on-window-detected]]
-# if.app-id = 'org.whispersystems.signal-desktop'
-# run = "move-node-to-workspace ?"
 
-# CODE
+# code
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace 2"
+run = "move-node-to-workspace j"
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = "move-node-to-workspace j"
 
-# BROWSER
+# browser
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-run = "move-node-to-workspace 3"
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = "move-node-to-workspace 3"
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = "move-node-to-workspace 3"
+run = "move-node-to-workspace k"
 
-# MUSIC
+# simulator (ios)
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator.Simulator'
+run = 'layout floating'
+
+# Music
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = "move-node-to-workspace 5"
+run = "move-node-to-workspace ;"
 
-# EVERYTHING ELSE - Moves to workspace 4
+# Everything else - move to workspace l and float
 [[on-window-detected]]
 check-further-callbacks = true
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace l'
+[[on-window-detected]]
+run = 'layout floating'
