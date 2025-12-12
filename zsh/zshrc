@@ -50,7 +50,7 @@ extra_zsh_configs=(
     "$HOME/.config/zsh/work.zsh" 
     "$HOME/.config/zsh/personal.zsh" 
     "$HOME/.config/zsh/exports.zsh"
-    "$HOME/.config/zsh/auto_start_tmux.zsh"
+    # "$HOME/.config/zsh/auto_start_tmux.zsh"
 )
 for file in "${extra_zsh_configs[@]}"; do
     if [ -f "$file" ]; then
