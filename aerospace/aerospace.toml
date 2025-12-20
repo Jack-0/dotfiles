@@ -61,11 +61,10 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 0
 inner.vertical =   0
-# outer.left =       [{ monitor."M27U" = 200 },0]
-outer.left =       6
+outer.left =       [{ monitor."M27U" = 400 }, 6]
 outer.bottom =     6
 outer.top =        6
-outer.right =      6
+outer.right =       [{ monitor."M27U" = 400 }, 6]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -123,7 +122,7 @@ alt-shift-k = 'resize smart +50'
 
 # cmd-h = ['exec-and-forget open /Applications/Ghostty', 'workspace 1']
 cmd-h = 'workspace h'
-cmd-j = ["exec-and-forget open -a 'Ghostty.app' --args --title=base", 'workspace j']
+cmd-j = ["exec-and-forget open -a 'Ghostty.app' --args --title=base", 'workspace j'] # -a is for specific but forces focus?
 cmd-k = ["exec-and-forget open '/Applications/Brave Browser.app'", 'workspace k']
 cmd-l = 'workspace l'
 cmd-semicolon = 'workspace ;'
@@ -167,7 +166,6 @@ alt-shift-l = ['join-with right', 'mode main']
 # Move applications to specified workspaces
 # to find the app-id use the following
 # `aerospace list-apps --json`
-
 
 # code
 [[on-window-detected]]
