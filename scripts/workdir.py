@@ -97,7 +97,7 @@ def prune_stale_worktrees(git_root):
     )
 
 
-def create_worktree(git_root, branch, worktree_path):
+def create_worktree(git_root, branch, worktree_path, from_master=False):
     """Create a git worktree for the given branch."""
     # Check if branch exists locally
     local_check = subprocess.run(
@@ -126,6 +126,14 @@ def create_worktree(git_root, branch, worktree_path):
              str(worktree_path), f"origin/{branch}"],
             cwd=git_root
         )
+    elif from_master:
+        # New branch from origin/master
+        subprocess.run(["git", "fetch", "origin", "master"], cwd=git_root)
+        result = subprocess.run(
+            ["git", "worktree", "add", "-b", branch,
+             str(worktree_path), "origin/master"],
+            cwd=git_root
+        )
     else:
         # New branch, create from current HEAD
         result = subprocess.run(
@@ -150,14 +158,31 @@ def tmux_session_exists(session_name):
     return result.returncode == 0
 
 
-def switch_to_tmux_session(session_name, directory):
+def switch_to_tmux_session(session_name, directory, code_review=False):
     """Create and/or switch to a tmux session for the worktree."""
     session_name = session_name.replace(".", "_")
+    claude_cmd = 'claude "Perform a code review using this branch in comparison to master"'
 
-    if not tmux_session_exists(session_name):
-        subprocess.run(
-            ["tmux", "new-session", "-ds", session_name, "-c", str(directory)]
-        )
+    session_existed = tmux_session_exists(session_name)
+
+    if not session_existed:
+        if code_review:
+            # Create session with claude code review command
+            subprocess.run([
+                "tmux", "new-session", "-ds", session_name,
+                "-c", str(directory), claude_cmd
+            ])
+        else:
+            subprocess.run([
+                "tmux", "new-session", "-ds", session_name,
+                "-c", str(directory)
+            ])
+    elif code_review:
+        # Session exists, create new window at index 0 with claude command
+        subprocess.run([
+            "tmux", "new-window", "-t", f"{session_name}:0",
+            "-c", str(directory), "-b", claude_cmd
+        ])
 
     if in_tmux():
         subprocess.run(["tmux", "switch-client", "-t", session_name])
@@ -173,14 +198,27 @@ def main():
     )
     parser.add_argument(
         "-b", "--branch",
-        help="Create a new branch with the given name"
+        help="Create a new branch from current HEAD"
+    )
+    parser.add_argument(
+        "-bm", "--branch-from-master",
+        help="Create a new branch from origin/master"
+    )
+    parser.add_argument(
+        "-cr", "--code-review",
+        action="store_true",
+        help="Open tmux session with claude code review prompt"
     )
     args = parser.parse_args()
 
     git_root = get_git_root()
     repo_name = get_repo_name()
+    from_master = False
 
-    if args.branch:
+    if args.branch_from_master:
+        branch = args.branch_from_master
+        from_master = True
+    elif args.branch:
         branch = args.branch
     else:
         branches = get_branches()
@@ -202,12 +240,12 @@ def main():
         print(f"Worktree already exists at {worktree_path}")
     else:
         WORKDIR_BASE.mkdir(parents=True, exist_ok=True)
-        if not create_worktree(git_root, branch, worktree_path):
+        if not create_worktree(git_root, branch, worktree_path, from_master):
             print(f"Error: Failed to create worktree for branch '{branch}'")
             sys.exit(1)
         print(f"Created worktree at {worktree_path}")
 
-    switch_to_tmux_session(worktree_name, worktree_path)
+    switch_to_tmux_session(worktree_name, worktree_path, args.code_review)
 
 
 if __name__ == "__main__":
