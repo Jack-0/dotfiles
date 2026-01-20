@@ -97,7 +97,7 @@ def prune_stale_worktrees(git_root):
     )
 
 
-def create_worktree(git_root, branch, worktree_path, from_master=False):
+def create_worktree(git_root, branch, worktree_path, from_current=False):
     """Create a git worktree for the given branch."""
     # Check if branch exists locally
     local_check = subprocess.run(
@@ -126,18 +126,18 @@ def create_worktree(git_root, branch, worktree_path, from_master=False):
              str(worktree_path), f"origin/{branch}"],
             cwd=git_root
         )
-    elif from_master:
-        # New branch from origin/master
+    elif from_current:
+        # New branch from current HEAD
+        result = subprocess.run(
+            ["git", "worktree", "add", "-b", branch, str(worktree_path)],
+            cwd=git_root
+        )
+    else:
+        # New branch from origin/master (default)
         subprocess.run(["git", "fetch", "origin", "master"], cwd=git_root)
         result = subprocess.run(
             ["git", "worktree", "add", "-b", branch,
              str(worktree_path), "origin/master"],
-            cwd=git_root
-        )
-    else:
-        # New branch, create from current HEAD
-        result = subprocess.run(
-            ["git", "worktree", "add", "-b", branch, str(worktree_path)],
             cwd=git_root
         )
 
@@ -198,11 +198,11 @@ def main():
     )
     parser.add_argument(
         "-b", "--branch",
-        help="Create a new branch from current HEAD"
+        help="Create a new branch from origin/master"
     )
     parser.add_argument(
-        "-bm", "--branch-from-master",
-        help="Create a new branch from origin/master"
+        "-bc", "--branch-from-current",
+        help="Create a new branch from current HEAD"
     )
     parser.add_argument(
         "-cr", "--code-review",
@@ -213,11 +213,11 @@ def main():
 
     git_root = get_git_root()
     repo_name = get_repo_name()
-    from_master = False
+    from_current = False
 
-    if args.branch_from_master:
-        branch = args.branch_from_master
-        from_master = True
+    if args.branch_from_current:
+        branch = args.branch_from_current
+        from_current = True
     elif args.branch:
         branch = args.branch
     else:
@@ -229,8 +229,9 @@ def main():
         if not branch:
             sys.exit(0)
 
-    # Worktree path: ~/dev/<repo_name>-<branch>
-    worktree_name = f"{repo_name}-{branch}"
+    # Worktree path: ~/dev/<repo_name>-<branch> (replace / with - in branch name)
+    safe_branch = branch.replace("/", "-")
+    worktree_name = f"{repo_name}-{safe_branch}"
     worktree_path = WORKDIR_BASE / worktree_name
 
     # Prune stale worktrees (deleted directories git still tracks)
@@ -240,7 +241,7 @@ def main():
         print(f"Worktree already exists at {worktree_path}")
     else:
         WORKDIR_BASE.mkdir(parents=True, exist_ok=True)
-        if not create_worktree(git_root, branch, worktree_path, from_master):
+        if not create_worktree(git_root, branch, worktree_path, from_current):
             print(f"Error: Failed to create worktree for branch '{branch}'")
             sys.exit(1)
         print(f"Created worktree at {worktree_path}")

@@ -49,10 +49,10 @@
 
   // JSON
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "svelte.enable-ts-plugin": true,
   "cSpell.userWords": [
@@ -74,19 +74,48 @@
   "debug.console.fontSize": 16,
   "terminal.integrated.fontSize": 16,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "azureFunctions.showProjectWarning": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "svg.preview.mode": "svg",
-  "workbench.settings.applyToAllProfiles": [
-  ],
   "go.toolsManagement.autoUpdate": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "all",
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "ED9E5039-5527-46BE-8546-FABA5633E5CA"
+    }
+  ],
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "server": "35.234.153.148",
+      "database": "",
+      "user": "jackharris",
+      "password": "",
+      "commandTimeout": 30,
+      "encrypt": "Mandatory",
+      "profileName": "ladmin",
+      "savePassword": true,
+      "trustServerCertificate": true,
+      "groupId": "ED9E5039-5527-46BE-8546-FABA5633E5CA",
+      "id": "DFB2FBB5-ED91-45BD-AC3B-D8CE1D540A0B",
+      "profileSource": 0
+    }
+  ],
+  "files.associations": {
+    "*.tf": "opentofu"
+  },
+  "editor.wordWrap": "on",
+  "git.suggestSmartCommit": false
 }
