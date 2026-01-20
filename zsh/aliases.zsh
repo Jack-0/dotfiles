@@ -15,6 +15,8 @@ alias prettyPlz='prettier --write .'
 alias j="$HOME/.local/bin/sesh.sh"
 alias jj="$HOME/.local/bin/code_sesh.sh"
 alias s="$HOME/.local/bin/ssh.py"
+alias gauth="eval \"\$(python3 \$HOME/.local/bin/gcloud.py)\""
+alias workdir="$HOME/.local/bin/workdir.py"
 
 # misc
 alias list="nvim ~/thelist.md"
@@ -24,3 +26,6 @@ alias code-ext='code --list-extensions | xargs -L 1 echo code --install-extensio
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='vim ~/.config/nvim'
+
+# aerospace quick layout fix
+alias fixlayout="aerospace layout accordion vertical"
