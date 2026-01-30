@@ -2,7 +2,6 @@
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim ."
-alias n="nvim ."
 
 # start tmux base sessions
 alias b="$HOME/.local/bin/tmux_base.sh"
